@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="REDPLAY GAMES — تطبيقك للألعاب في تجربة واحدة.">
+  <title>REDPLAY GAMES | PLAY MORE. PLAY RED.</title>
+  <style>
+    :root{--bg:#080808;--panel:#111113;--panel2:#180609;--red:#ff1744;--red2:#b9002a;--white:#f7f7f8;--muted:#a4a4aa;--line:rgba(255,255,255,.09);--glow:0 0 45px rgba(255,23,68,.22)}
+    *{box-sizing:border-box;min-width:0}
+    html{width:100%;max-width:100%;overflow-x:clip;scroll-behavior:smooth;background:var(--bg)}
+    body{margin:0;width:100%;max-width:100%;overflow-x:clip;overscroll-behavior-x:none;background:var(--bg);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.7}
+    img,svg,video{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button,a{-webkit-tap-highlight-color:transparent}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+    .bg-glow:before,.bg-glow:after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;filter:blur(110px);opacity:.16}
+    .bg-glow:before{background:var(--red);top:-180px;right:-170px}
+    .bg-glow:after{background:#7c001c;bottom:-220px;left:-180px}
+    header{position:sticky;top:0;z-index:20;background:rgba(8,8,8,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:950;letter-spacing:1px}
+    .brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(145deg,#ff3158,#92001f);display:grid;place-items:center;box-shadow:var(--glow);font-weight:1000;font-size:19px}
+    .brand span:last-child{font-size:17px}
+    .nav-links{display:flex;align-items:center;gap:25px;color:#c5c5ca;font-size:14px}
+    .nav-links a:hover{color:var(--red)}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:13px;padding:12px 19px;font-weight:800;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s}
+    .nav-cta,.btn-primary{background:linear-gradient(135deg,#ff3158,#d90035);color:white;box-shadow:0 10px 30px rgba(255,23,68,.2)}
+    .nav-cta:hover,.btn:hover{transform:translateY(-3px);box-shadow:0 14px 35px rgba(255,23,68,.3)}
+    .hero{padding:88px 0 74px;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:55px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,23,68,.28);background:rgba(255,23,68,.08);color:#ff8098;padding:7px 13px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:1.3px}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red)}
+    h1{font-size:clamp(43px,6vw,76px);line-height:1.08;letter-spacing:-2px;margin:22px 0 18px;font-weight:1000}
+    h1 em{font-style:normal;color:var(--red);text-shadow:0 0 30px rgba(255,23,68,.28)}
+    .lead{color:#b8b8bf;font-size:17px;max-width:550px;margin:0 0 28px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{font-size:14px;padding:14px 21px}
+    .btn-outline{border-color:rgba(255,255,255,.17);background:rgba(255,255,255,.035);color:#eee}
+    .btn-outline:hover{background:rgba(255,255,255,.08)}
+    .micro{margin-top:18px;color:#85858d;font-size:12px}
+    .visual{min-height:390px;display:grid;place-items:center;position:relative}
+    .orbit{width:min(360px,85vw);aspect-ratio:1;border:1px solid rgba(255,23,68,.25);border-radius:50%;display:grid;place-items:center;position:relative;box-shadow:inset 0 0 70px rgba(255,23,68,.06),0 0 80px rgba(255,23,68,.08);animation:float 6s ease-in-out infinite}
+    .orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.08);border-radius:50%;inset:25px}
+    .orbit:after{inset:52px;border-color:rgba(255,23,68,.18)}
+    .core{width:190px;height:190px;border-radius:42px;transform:rotate(-9deg);display:grid;place-items:center;background:linear-gradient(145deg,#281016,#0d0d0f 65%);border:1px solid rgba(255,23,68,.45);box-shadow:0 25px 80px rgba(0,0,0,.55),0 0 55px rgba(255,23,68,.2);position:relative}
+    .core strong{font-size:68px;color:var(--red);font-weight:1000;text-shadow:0 0 28px rgba(255,23,68,.45);transform:rotate(9deg)}
+    .orbit-tag{position:absolute;padding:8px 12px;border:1px solid var(--line);background:#111114;border-radius:10px;color:#ddd;font-size:11px;font-weight:800;box-shadow:0 10px 25px #000}
+    .tag-one{top:15%;right:-2%}.tag-two{bottom:15%;left:-4%}
+    section{padding:74px 0}
+    .section-head{text-align:center;margin-bottom:36px}
+    .kicker{color:var(--red);font-size:12px;font-weight:900;letter-spacing:2px}
+    h2{font-size:clamp(28px,4vw,42px);line-height:1.2;margin:10px 0 12px;font-weight:950}
+    .section-head p{color:var(--muted);max-width:620px;margin:0 auto}
+    .about{border-block:1px solid var(--line);background:linear-gradient(90deg,transparent,rgba(255,23,68,.035),transparent)}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .feature{padding:25px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));transition:.25s}
+    .feature:hover{transform:translateY(-5px);border-color:rgba(255,23,68,.38);box-shadow:var(--glow)}
+    .feature-icon{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;background:rgba(255,23,68,.12);color:#ff607d;font-size:20px;margin-bottom:16px}
+    .feature h3{margin:0 0 7px;font-size:17px}.feature p{margin:0;color:var(--muted);font-size:13px}
+    .download-panel{position:relative;overflow:hidden;padding:45px;border:1px solid rgba(255,23,68,.25);border-radius:24px;background:radial-gradient(ellipse at 100% 0,rgba(255,23,68,.17),transparent 48%),#101012;display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .download-panel h2{margin-top:0}.download-panel p{color:var(--muted);margin:0}
+    .download-panel .btn{white-space:nowrap}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;counter-reset:step}
+    .step{padding:22px;border-radius:16px;background:#101012;border:1px solid var(--line)}
+    .step:before{counter-increment:step;content:"0" counter(step);display:block;color:var(--red);font-size:24px;font-weight:1000;margin-bottom:8px}
+    .step h3{margin:0 0 6px;font-size:16px}.step p{margin:0;color:var(--muted);font-size:13px}
+    .socials{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+    .social{min-width:150px;padding:13px 18px;border:1px solid var(--line);background:#111114;border-radius:13px;text-align:center;font-weight:800;transition:.2s}
+    .social:hover{border-color:var(--red);color:#ff718b;transform:translateY(-3px)}
+    footer{border-top:1px solid var(--line);padding:25px 0;color:#777780;font-size:12px;text-align:center}
+    footer b{color:#eee}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @media(max-width:800px){.hero-grid{grid-template-columns:1fr;gap:25px}.hero{padding:65px 0 35px}.visual{min-height:320px}.feature-grid{grid-template-columns:repeat(2,1fr)}.nav-links{gap:13px}.download-panel{padding:30px}}
+    @media(max-width:560px){
+      .wrap{width:calc(100% - 32px)}
+      .nav{height:66px}.brand span:last-child{font-size:14px}.brand-mark{width:34px;height:34px}
+      .nav-links{display:none}.nav-cta{padding:10px 13px;font-size:12px}
+      .hero{padding:52px 0 24px}h1{font-size:clamp(40px,12vw,56px);letter-spacing:-1.5px}
+      .lead{font-size:15px}.actions{display:grid;grid-template-columns:1fr}.btn{width:100%}
+      .visual{min-height:275px}.orbit{width:min(270px,78vw)}.core{width:145px;height:145px;border-radius:32px}.core strong{font-size:54px}
+      .tag-one{right:-3%;top:13%}.tag-two{left:-4%;bottom:12%}
+      section{padding:55px 0}.feature-grid,.steps{grid-template-columns:1fr}
+      .feature{padding:21px}.download-panel{padding:25px 20px;display:block;text-align:center}
+      .download-panel .btn{margin-top:20px}.section-head{margin-bottom:25px}
+      .social{flex:1 1 100%;min-width:0}
+    }
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="REDPLAY GAMES">
+        <span class="brand-mark">R</span><span>REDPLAY GAMES</span>
+      </a>
+      <nav class="nav-links" aria-label="التنقل">
+        <a href="#about">عن التطبيق</a><a href="#features">المميزات</a><a href="#download">التحميل</a><a href="#contact">تواصل معنا</a>
+      </nav>
+      <a class="nav-cta" href="#download">حمّل التطبيق <span>↓</span></a>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> YOUR GAMING WORLD</div>
+          <h1>PLAY MORE.<br><em>PLAY RED.</em></h1>
+          <p class="lead">اكتشف تجربة REDPLAY GAMES — تطبيق بهوية مميزة وتجربة استخدام بسيطة، مصمم لعشاق الألعاب.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://github.com/Red-play/Download-App-REDPLAY-GAMES/releases/download/v1.0.0/REDPLAY-GAMES.apk">⬇ تحميل REDPLAY APK</a>
+            <a class="btn btn-outline" href="#about">اكتشف التطبيق</a>
+          </div>
+          <div class="micro">REDPLAY GAMES · PLAY MORE. PLAY RED.</div>
+        </div>
+        <div class="visual" aria-label="شعار REDPLAY">
+          <div class="orbit"><div class="core"><strong>R</strong></div><span class="orbit-tag tag-one">RED EXPERIENCE</span><span class="orbit-tag tag-two">LEVEL UP</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="wrap section-head">
+        <div class="kicker">ABOUT REDPLAY</div>
+        <h2>كل تركيزك على تجربة اللعب</h2>
+        <p>REDPLAY GAMES تطبيق مستقل بواجهة واضحة وهوية حمراء وسوداء. حمل التطبيق وثبّته على جهازك بخطوات بسيطة.</p>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">WHY REDPLAY</div><h2>تجربة مصممة لعشاق الألعاب</h2><p>واجهة أنيقة وسهلة الوصول، مع تجربة مناسبة للموبايل.</p></div>
+        <div class="feature-grid">
+          <article class="feature"><div class="feature-icon">⚡</div><h3>وصول سريع</h3><p>انتقل إلى تحميل التطبيق بسهولة ومن دون خطوات معقدة.</p></article>
+          <article class="feature"><div class="feature-icon">▣</div><h3>تصميم واضح</h3><p>واجهة منظمة بهوية REDPLAY المميزة وألوانها الخاصة.</p></article>
+          <article class="feature"><div class="feature-icon">◆</div><h3>مناسب للموبايل</h3><p>تجربة مرنة تتكيف مع أحجام شاشات الهواتف المختلفة.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="download">
+      <div class="wrap">
+        <div class="download-panel">
+          <div><div class="kicker">GET THE APP</div><h2>جاهز تدخل عالم REDPLAY؟</h2><p>حمّل ملف APK الخاص بالتطبيق وابدأ التثبيت على جهازك.</p></div>
+          <a class="btn btn-primary" href="https://github.com/Red-play/Download-App-REDPLAY-GAMES/releases/download/v1.0.0/REDPLAY-GAMES.apk">تحميل التطبيق الآن ⬇</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="steps">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">HOW TO INSTALL</div><h2>طريقة التثبيت</h2><p>ثلاث خطوات بسيطة لتثبيت التطبيق على هاتفك.</p></div>
+        <div class="steps">
+          <article class="step"><h3>حمّل الملف</h3><p>اضغط على زر التحميل بالأعلى وانتظر اكتمال تنزيل APK.</p></article>
+          <article class="step"><h3>افتح الملف</h3><p>افتح ملف REDPLAY من إشعارات التنزيل أو مدير الملفات.</p></article>
+          <article class="step"><h3>ثبّت التطبيق</h3><p>اتبع تعليمات Android الظاهرة على الشاشة لإكمال التثبيت.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">STAY CONNECTED</div><h2>تابع REDPLAY</h2><p>تابعنا على منصاتنا لمعرفة آخر التحديثات والأخبار.</p></div>
+        <div class="socials">
+          <a class="social" href="https://t.me/Redplaay" target="_blank" rel="noopener noreferrer">✈ Telegram</a>
+          <a class="social" href="https://www.tiktok.com/@neonrp5050?_r=1&_t=ZS-9BJQSsOlagG" target="_blank" rel="noopener noreferrer">♪ TikTok</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap"><b>REDPLAY GAMES</b> — PLAY MORE. PLAY RED. <span>© 2026</span></div></footer>
+</body>
+</html>
